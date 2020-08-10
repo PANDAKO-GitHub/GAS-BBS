@@ -6,7 +6,7 @@ Google Apps Script にコピペして、なんやかんや書き換えれば動�
 ## 各ファイルについて
 ### bbs.gs と index.html と thread.html
 3 つで 1 つの Google Apps Script です。  
-コピペして ??????????? のとこ書き換えればいいと思います。
+HTML にはデプロイした Web App の URL を base 要素で設定する必要があります。
 
 ### dat.txt
 JSON でコメントデータが書き込まれます。  
