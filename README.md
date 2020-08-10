@@ -1,7 +1,9 @@
 # GAS-BBS
-
 Google Apps Script でスレッド式の掲示板を作ってみました。  
 Google Apps Script にコピペして、なんやかんや書き換えれば動くんじゃないでしょうか。しらんけど。
+
+## サンプル
+https://script.google.com/macros/s/AKfycbwNXn4xKQR2irDAxnf5aCgUGSHAi7Z-yNIxI6eWJz5nxoi5fmT1/exec
 
 ## 各ファイルについて
 ### bbs.gs と index.html と thread.html
