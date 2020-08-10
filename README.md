@@ -1,6 +1,7 @@
 # GAS-BBS
 
 Google Apps Script でスレッド式の掲示板を作ってみました。
+
 Google Apps Script にコピペして、なんやかんや書き換えれば動くんじゃないでしょうか。しらんけど。
 
 ## 各ファイルについて
@@ -11,6 +12,7 @@ Google Apps Script にコピペして、なんやかんや書き換えれば動�
 
 ### dat.txt
 JSON でコメントデータが書き込まれます。
+
 このファイルの File ID を bbs.gs に直書きします。
 
 ## ヤバそうな点
