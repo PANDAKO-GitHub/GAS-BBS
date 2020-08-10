@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<base href="https://script.google.com/macros/s/?????????????????????????????????/exec" target="_top">
+<base href="https://script.google.com/macros/s/【Web App の URL】/exec" target="_top">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BBS</title>
@@ -46,11 +46,11 @@ h3 {
 </head>
 <body>
 <header><h1>～ BBS ～</h1></header>
-<nav>[ <a href="#">スレッド一覧へ</a> ]</nav>
+<nav>[ <a href="?p=index">スレッド一覧へ</a> ]</nav>
 
 <div id="box">
 <? for (var i = 0; i < msgJson.length; i++) { ?>
-<? if (msgJson[i].type === "thread" && msgJson[i].thread.toString() === threadID) { ?>
+<? if (msgJson[i].type === "thread" && msgJson[i].thread === threadID) { ?>
 <h2><?= msgJson[i].title ?></h2>
 <p style="white-space:pre-line;"><?= msgJson[i].name ?>｜<time><?= msgJson[i].dat ?></time>
 <?= msgJson[i].msg ?></p>
@@ -58,7 +58,7 @@ h3 {
 <? } ?>
 
 <? for (var i = 0; i < msgJson.length; i++) { ?>
-<? if (msgJson[i].type !== "thread" && msgJson[i].thread.toString() === threadID) { ?>
+<? if (msgJson[i].type !== "thread" && msgJson[i].thread === threadID) { ?>
 <article>
 <h3><?= msgJson[i].title ?></h3>
 <p style="white-space:pre-line;"><?= msgJson[i].name ?>｜<time><?= msgJson[i].dat ?></time>
@@ -75,7 +75,7 @@ h3 {
 <p><label>タイトル：<input type="text" name="title" maxlength="50" placeholder="必須。50文字まで。" required></label></p>
 <p><label>お名前：<input type="text" name="name" maxlength="50" placeholder="必須。50文字まで。" required></label></p>
 <p><label>コメント：<textarea name="msg" rows="10" maxlength="5000" placeholder="必須。5000文字まで。" required></textarea></label></p>
-<p><input type="submit" value="追加"></p>
+<p><input type="submit" value="追加" onClick='this.style.display = "none";'></p>
 </form>
 </article>
 
