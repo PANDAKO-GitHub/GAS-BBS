@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<base href="https://script.google.com/macros/s/?????????????????????????????????/exec" target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBS</title>
+<style>
+body {
+	background-color:#202020;
+	color:#e0e0e0;
+}
+a {
+	color:#fff;
+}
+header {
+	text-align:center;
+}
+nav {
+	text-align:center;
+	margin-bottom:2em;
+}
+div#box {
+    max-width:800px;
+    margin:0px auto;
+}
+article {
+	border:solid 1px #e0e0e0;
+    border-radius: 10px;
+    padding:1em 1em 0em 1em;
+    margin:1em;
+}
+input[type="text"] {
+	width:100%;
+}
+textarea {
+	width:100%;
+}
+article h2 {
+	margin:0px;
+}
+h3 {
+	margin:0px;
+}
+</style>
+</head>
+<body>
+<header><h1>～ BBS ～</h1></header>
+<nav>[ <a href="#">スレッド一覧へ</a> ]</nav>
+
+<div id="box">
+<? for (var i = 0; i < msgJson.length; i++) { ?>
+<? if (msgJson[i].type === "thread" && msgJson[i].thread.toString() === threadID) { ?>
+<h2><?= msgJson[i].title ?></h2>
+<p style="white-space:pre-line;"><?= msgJson[i].name ?>｜<time><?= msgJson[i].dat ?></time>
+<?= msgJson[i].msg ?></p>
+<? } ?>
+<? } ?>
+
+<? for (var i = 0; i < msgJson.length; i++) { ?>
+<? if (msgJson[i].type !== "thread" && msgJson[i].thread.toString() === threadID) { ?>
+<article>
+<h3><?= msgJson[i].title ?></h3>
+<p style="white-space:pre-line;"><?= msgJson[i].name ?>｜<time><?= msgJson[i].dat ?></time>
+<?= msgJson[i].msg ?></p>
+</article>
+<? } ?>
+<? } ?>
+
+<article>
+<h2>コメント追加</h2>
+<form action="#" method="post">
+<input type="hidden" name="type" value="comment">
+<input type="hidden" name="thread" value="<?= threadID ?>">
+<p><label>タイトル：<input type="text" name="title" maxlength="50" placeholder="必須。50文字まで。" required></label></p>
+<p><label>お名前：<input type="text" name="name" maxlength="50" placeholder="必須。50文字まで。" required></label></p>
+<p><label>コメント：<textarea name="msg" rows="10" maxlength="5000" placeholder="必須。5000文字まで。" required></textarea></label></p>
+<p><input type="submit" value="追加"></p>
+</form>
+</article>
+
+</div>
+</body>
+</html>
